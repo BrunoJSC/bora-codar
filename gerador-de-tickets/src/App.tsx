@@ -10,7 +10,11 @@ export default function App() {
     const data = await getUserInfo(`${user}`);
     console.log(data);
     setData(data);
+
+    setUser("");
   };
+
+  const listStyle = "flex items-center justify-between my-2";
 
   useEffect(() => {
     getUserInfo("bora-codar");
@@ -26,18 +30,19 @@ export default function App() {
             <p className="text-[#F3F4FE] font-normal my-4">
               Digite seu usuário do GitHub
             </p>
-            <div>
-              <img
-                className="absolute z-10 w-6 h-6"
-                src="../src/assets/logo-github.svg"
-                alt=""
-              />
+            <div className="flex items-center relative">
               <input
-                className="w-[100%] relative py-[16px] px-[12px] rounded-md"
+                className="w-[100%] py-[16px] rounded-md px-9"
                 type="text"
                 placeholder="Nome de usuário"
                 value={user}
                 onChange={(e) => setUser(e.target.value)}
+              />
+
+              <img
+                className="absolute z-10 w-6 h-6 left-2"
+                src="../src/assets/logo-github.svg"
+                alt=""
               />
             </div>
             <button className="w-full mt-4 py-[22px] px-[40px] bg-[#8860E6] text-[14px] font-bold uppercase text-white">
@@ -52,14 +57,31 @@ export default function App() {
               alt=""
               className="h-full object-contain"
             />
-            <div className="w-[613px] h-[318px] bg-white flex flex-col items-center">
+            <div className="w-[613px] h-[318px] bg-white flex flex-col items-center p-4">
               <img
-                src={data.avatar_url}
+                src={data.avatar_url ?? "./src/assets/foto.png"}
                 alt={data.login}
                 className="rounded-full w-28 h-28"
               />
               <p>{data.login}</p>
               <h2>{data.name}</h2>
+
+              <ul className=" w-full p-4">
+                <li className={listStyle}>
+                  <span className="uppercase">eventos</span>
+                  <span className="uppercase">ia para devs</span>
+                </li>
+
+                <li className={listStyle}>
+                  <span className="uppercase">data</span>
+                  <span className="uppercase">14 - 16 ago. 2023</span>
+                </li>
+
+                <li className={listStyle}>
+                  <span className="uppercase">Hora</span>
+                  <span className="uppercase">ao vivo 19H</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
