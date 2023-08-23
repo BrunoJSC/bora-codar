@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+}
+
+input {
+  font-family: 'Roboto', sans-serif;
+}
