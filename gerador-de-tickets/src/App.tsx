@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { User, getUserInfo } from "./services";
 
 export default function App() {
@@ -16,9 +16,6 @@ export default function App() {
 
   const listStyle = "flex items-center justify-between my-2";
 
-  useEffect(() => {
-    getUserInfo("bora-codar");
-  });
   return (
     <section className="object-cover w-screen h-screen bg-hero-image flex items-center justify-center">
       <div className="w-[1440px] h-[408.638px] flex items-center justify-between">
